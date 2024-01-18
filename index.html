@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1473&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover no-repeat; /* Replace 'your_image_url.jpg' with your image URL */
+        }
+
+        header {
+            background-color: #5EB7BB;
+            color: #fff;
+            text-align: center;
+            padding: 0.89em;
+            font-family: 'georgia', serif;
+            font-size: 1.5rem;
+            height: 2.8em;
+            display: flex;
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
+        }
+
+
+        .dashboard {
+            display: flex;
+            flex-wrap: wrap; /* Allow items to wrap to the next line */
+            justify-content: center; /* Center items horizontally */
+            padding: 2em;
+        }
+
+        .employee-card {
+            background-color: none;
+            border: 0.1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 1em;
+            padding: 1.6rem;
+            width: calc(50% - 2em); /* Set the width to 50% with some margin */
+            text-align: center;
+            text-transform: uppercase;
+            border-radius: 50px;
+            box-sizing: border-box; /* Include padding and border in the width calculation */
+        }
+
+        .employee-card:hover {
+            transform: scale(1.1);
+            background-color: none;
+            border-color: black;
+        }
+
+        a {
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Employee Dashboard</h1>
+    </header>
+
+    <div class="dashboard" id="dashboard"></div>
+    <script>
+        // Example employee data
+        const employees = [
+            { name: "Roshni", link: "https://rb.gy/6o1gy1" },
+            { name: "Shravan", link: "https://rb.gy/6o1gy1" },
+            { name: "Sandeep", link: "https://rb.gy/6o1gy1" },
+            { name: "Virender", link: "https://rb.gy/6o1gy1" },
+            { name: "Ankit", link: "https://rb.gy/6o1gy1" },
+            { name: "Roji", link: "https://rb.gy/6o1gy1" },
+            // Add more employees as needed
+        ];
+
+        // Function to create employee cards
+        function createEmployeeCard(employee) {
+            const card = document.createElement("div");
+            card.classList.add("employee-card");
+
+            const link = document.createElement("a");
+            link.href = employee.link;
+            link.textContent = employee.name;
+
+            card.appendChild(link);
+            return card;
+        }
+
+        // Populate the dashboard with employee cards
+        const dashboard = document.getElementById("dashboard");
+        employees.forEach(employee => {
+            const card = createEmployeeCard(employee);
+            dashboard.appendChild(card);
+        });
+    </script>
+</body>
+</html>
